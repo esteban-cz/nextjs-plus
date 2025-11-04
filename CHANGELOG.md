@@ -13,3 +13,4 @@
 
 - Added logo
 - Updated .gitignore
+- Updated README

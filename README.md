@@ -2,7 +2,6 @@
 <table>
 <tbody>
 <td align="center">
-<!-- <img src="" width="0" height="0"> -->
 <br>
 <sub>
   
@@ -12,7 +11,6 @@
   ![GitHub last commit](https://img.shields.io/github/last-commit/esteban-cz/nextjs-plus?style=for-the-badge)
   
 </sub><br><br>
-<!-- <img src="" width="0" height="0"> -->
 </td>
 </tbody>
 </table>
@@ -20,7 +18,10 @@
 
 <br>
 
-# <div align="center"><u>Next.js Plus</u></div>
+<div align="center">
+  <p style="margin: 0 0 12px 0; font-size: 1.75rem;"><u>Next.js Plus</u></p>
+  <img src="icons/nextjs-plus-logo.png" width="100" height="100" alt="Next.js Plus logo">
+</div>
 
 ## Features
 
@@ -62,6 +63,7 @@ Every setting lives under **Next.js Plus Configuration** (`nextjsPlus.*`) and ma
 
 - Added logo
 - Updated .gitignore
+- Updated README
 
 ---
 
