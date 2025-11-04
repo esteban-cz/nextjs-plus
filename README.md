@@ -54,6 +54,11 @@ Every setting lives under **Next.js Plus Configuration** (`nextjsPlus.*`). Most 
 
 ## Release Notes
 
+### 1.0.3 - Code cleanup
+
+- Made code more readable and easier to understand.
+- Removed unnecessary `.gitignore` items.
+
 ### 1.0.2 — Default Location Command
 
 - Added command palette action (`Next.js Plus: Select Default Project Location`) to pick a default folder via native dialog.

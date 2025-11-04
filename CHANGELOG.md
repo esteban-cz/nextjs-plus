@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.3 - 11/4/2025
+
+- Made code more readable and easier to understand.
+- Removed unnecessary `.gitignore` items.
+
+---
+
 ## 1.0.2 - 11/4/2025
 
 - Added command palette action (`Next.js Plus: Select Default Project Location`) to pick a default folder via native dialog.

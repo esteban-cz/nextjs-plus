@@ -113,7 +113,9 @@ async function createNextJsProject(): Promise<void> {
     return;
   }
 
-  const defaultLocationSetting = config.get<string>("defaultLocation", "").trim();
+  const defaultLocationSetting = config
+    .get<string>("defaultLocation", "")
+    .trim();
   const targetFolder = await resolveTargetFolder(
     defaultLocationSetting ? defaultLocationSetting : undefined
   );
@@ -442,15 +444,12 @@ async function handleDefaultLocationSelection(): Promise<void> {
     },
   ];
 
-  const choice = await vscode.window.showQuickPick(
-    options,
-    {
-      placeHolder: current
-        ? `Current default: ${current}`
-        : "No default project location set",
-      ignoreFocusOut: true,
-    }
-  );
+  const choice = await vscode.window.showQuickPick(options, {
+    placeHolder: current
+      ? `Current default: ${current}`
+      : "No default project location set",
+    ignoreFocusOut: true,
+  });
 
   if (!choice) {
     return;
