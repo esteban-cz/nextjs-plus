@@ -6,3 +6,10 @@
 - Create a Next.js project from the status bar with curated defaults.
 - Configure defaults and per-run prompts for every Create Next App flag.
 - Optionally skip opening the generated project in a new VS Code window.
+
+---
+
+## 1.0.1 - 11/4/2025
+
+- Added logo
+- Updated .gitignore

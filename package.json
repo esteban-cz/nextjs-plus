@@ -12,7 +12,7 @@
     "Other"
   ],
   "main": "./dist/extension.js",
-  "icon": "icon/Quick-Git-logo.png",
+  "icon": "icon/nextjs-plus-logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/esteban-cz/nextjs-plus"

@@ -57,6 +57,11 @@ Every setting lives under **Next.js Plus Configuration** (`nextjsPlus.*`) and ma
 - Configure defaults and per-run prompts for every Create Next App flag.
 - Optionally skip opening the generated project in a new VS Code window.
 
+### 1.0.1
+
+- Added logo
+- Updated .gitignore
+
 ---
 
 **Enjoy!**
