@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4 - 11/4/2025
+
+- Updated `StatusBarItem` alignment.
+
+---
+
 ## 1.0.3 - 11/4/2025
 
 - Made code more readable and easier to understand.

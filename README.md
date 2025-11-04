@@ -54,6 +54,12 @@ Every setting lives under **Next.js Plus Configuration** (`nextjsPlus.*`). Most 
 
 ## Release Notes
 
+### 1.0.4 - Updated alignment
+
+- Updated `StatusBarItem` alignment.
+
+---
+
 ### 1.0.3 - Code cleanup
 
 - Made code more readable and easier to understand.

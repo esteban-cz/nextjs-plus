@@ -61,7 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   statusBarItem = vscode.window.createStatusBarItem(
     vscode.StatusBarAlignment.Left,
-    100
+    1
   );
   statusBarItem.text = "Next.js $(diff-added)";
   statusBarItem.tooltip = "Create a new Next.js project";

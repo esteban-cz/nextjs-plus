@@ -2,7 +2,7 @@
   "name": "nextjs-plus",
   "displayName": "Next.js Plus",
   "description": "Create a new Next.js application from VS Code with a single click.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "esty",
   "license": "GPL-3.0-only",
   "engines": {
