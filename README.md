@@ -4,7 +4,6 @@
 <td align="center">
 <!-- <img src="" width="0" height="0"> -->
 <br>
-<br>
 <sub>
   
   [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://choosealicense.com/licenses/gpl-3.0/)&nbsp;&nbsp;&nbsp;
