@@ -31,6 +31,8 @@ interface ProjectOptions {
   enableTurbopack: boolean;
   enableReactCompiler: boolean;
   importAlias: string;
+  initShadcn: boolean;
+  installAllShadcnComponents: boolean;
 }
 
 interface BooleanQuickPickItem extends vscode.QuickPickItem {
@@ -154,6 +156,18 @@ async function createNextJsProject(): Promise<void> {
         output,
         options: projectOptions,
       });
+
+      if (
+        projectOptions.initShadcn ||
+        projectOptions.installAllShadcnComponents
+      ) {
+        progress.report({ message: "Setting up shadcn/ui..." });
+        await runShadcnSetup({
+          projectPath,
+          options: projectOptions,
+          output,
+        });
+      }
     }
   );
 
@@ -311,6 +325,33 @@ async function resolveProjectOptions(
     return undefined;
   }
 
+  const initShadcn = await resolveBooleanOption({
+    config,
+    settingKey: "shadcnInit",
+    promptKey: "shadcnInitPrompt",
+    defaultValue: true,
+    promptMessage: "Run shadcn/ui init?",
+    enableDescription: "Runs `npx shadcn@latest init` after project creation.",
+    disableDescription: "Skips shadcn/ui initialization.",
+  });
+  if (initShadcn === undefined) {
+    return undefined;
+  }
+
+  const installAllShadcnComponents = await resolveBooleanOption({
+    config,
+    settingKey: "shadcnInstallAll",
+    promptKey: "shadcnInstallAllPrompt",
+    defaultValue: false,
+    promptMessage: "Install all shadcn/ui components?",
+    enableDescription:
+      "Runs `npx shadcn@latest add --all` after initialization.",
+    disableDescription: "Leaves component installation for later.",
+  });
+  if (installAllShadcnComponents === undefined) {
+    return undefined;
+  }
+
   return {
     useTypeScript,
     includeTailwind,
@@ -321,6 +362,8 @@ async function resolveProjectOptions(
     enableTurbopack,
     enableReactCompiler,
     importAlias: importAlias.trim(),
+    initShadcn,
+    installAllShadcnComponents,
   };
 }
 
@@ -564,4 +607,73 @@ async function removeDirectory(dir: string): Promise<void> {
   }
 
   await fs.promises.rm(dir, { recursive: true, force: true });
+}
+
+async function runShadcnSetup(params: {
+  projectPath: string;
+  options: ProjectOptions;
+  output: vscode.OutputChannel;
+}): Promise<void> {
+  if (params.options.initShadcn) {
+    await runExternalCommand({
+      command: "npx",
+      args: ["shadcn@latest", "init", "-y", "--base-color=zinc"],
+      cwd: params.projectPath,
+      output: params.output,
+      label: "shadcn init",
+    });
+  }
+
+  if (params.options.installAllShadcnComponents) {
+    await runExternalCommand({
+      command: "npx",
+      args: ["shadcn@latest", "add", "--all"],
+      cwd: params.projectPath,
+      output: params.output,
+      label: "shadcn add --all",
+    });
+  }
+}
+
+async function runExternalCommand(params: {
+  command: string;
+  args: string[];
+  cwd: string;
+  output: vscode.OutputChannel;
+  label: string;
+}): Promise<void> {
+  params.output.appendLine(
+    `> (${params.label}) ${[params.command, ...params.args].join(" ")} (cwd: ${
+      params.cwd
+    })`
+  );
+
+  await new Promise<void>((resolve, reject) => {
+    const child = spawn(params.command, params.args, {
+      cwd: params.cwd,
+      shell: process.platform === "win32",
+    });
+
+    child.stdout?.on("data", (data) => {
+      params.output.append(data.toString());
+    });
+
+    child.stderr?.on("data", (data) => {
+      params.output.append(data.toString());
+    });
+
+    child.on("error", (error) => {
+      reject(error);
+    });
+
+    child.on("close", (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(
+          new Error(`${params.label} exited with code ${code ?? "unknown"}`)
+        );
+      }
+    });
+  });
 }

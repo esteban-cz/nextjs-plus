@@ -31,6 +31,7 @@
 - Streams scaffold progress to a dedicated VS Code output channel.
 - Optionally open the generated project automatically in a fresh VS Code window.
 - Optional default project location so you can skip the folder picker when desired.
+- Optional shadcn/ui automation to initialize the library and install every component right after scaffolding.
 
 ---
 
@@ -46,13 +47,21 @@
 - `Turbopack` / `Prompt for Turbopack`
 - `React Compiler` / `Prompt for React Compiler`
 - `Import alias` / `Prompt for import alias`
+- `shadcn init` / `Prompt for shadcn init`
+- `Install all shadcn components` / `Prompt for shadcn components`
 - `Open in new window`
 
-Every setting lives under **Next.js Plus Configuration** (`nextjsPlus.*`). Most map directly to a Create Next App flag; the default project location lets you skip the folder picker and can be set via the `Next.js Plus: Select Default Project Location` command. When a “Prompt …” toggle is enabled, the stored default is ignored and you’re asked during project creation.
+Every setting lives under **Next.js Plus Configuration** (`nextjsPlus.*`). Most map directly to a Create Next App flag; the default project location lets you skip the folder picker (set via the `Next.js Plus: Select Default Project Location` command) and the shadcn toggles let you automate `npx shadcn@latest init` and `npx shadcn@latest add --all`. When a “Prompt …” toggle is enabled, the stored default is ignored and you’re asked during project creation.
 
 ---
 
 ## Release Notes
+
+### 1.0.5 — shadcn/ui Automation
+
+- Added settings (and optional prompts) to run `npx shadcn@latest init` automatically after scaffolding.
+- Added toggle to run `npx shadcn@latest add --all` to pull in every component.
+- Updated docs and settings descriptions to highlight the shadcn workflow.
 
 ### 1.0.4 - Updated alignment
 

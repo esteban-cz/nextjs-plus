@@ -2,7 +2,7 @@
   "name": "nextjs-plus",
   "displayName": "Next.js Plus",
   "description": "Create a new Next.js application from VS Code with a single click.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "esty",
   "license": "GPL-3.0-only",
   "engines": {
@@ -169,12 +169,40 @@
           "markdownDescription": "_Prompt for import alias_  \nAsk at creation time which import alias to use.",
           "order": 91
         },
+        "nextjsPlus.shadcnInit": {
+          "type": "boolean",
+          "default": true,
+          "description": "Run shadcn/ui initialization (`npx shadcn@latest init`) after creating the project. Ignored when 'Prompt for shadcn init' is enabled.",
+          "markdownDescription": "**shadcn init**  \nRun `npx shadcn@latest init` inside the new project right after scaffolding. This value is used unless 'Prompt for shadcn init' is enabled.",
+          "order": 100
+        },
+        "nextjsPlus.shadcnInitPrompt": {
+          "type": "boolean",
+          "default": false,
+          "description": "Prompt whether to run shadcn/ui init after each project is created.",
+          "markdownDescription": "_Prompt for shadcn init_  \nAsk at creation time whether to run `npx shadcn@latest init`.",
+          "order": 101
+        },
+        "nextjsPlus.shadcnInstallAll": {
+          "type": "boolean",
+          "default": false,
+          "description": "Install all shadcn/ui components (`npx shadcn@latest add --all`) after initialization. Ignored when 'Prompt for shadcn components' is enabled.",
+          "markdownDescription": "**Install all shadcn components**  \nRun `npx shadcn@latest add --all` after initialization to pull in every component. This value is used unless 'Prompt for shadcn components' is enabled.",
+          "order": 110
+        },
+        "nextjsPlus.shadcnInstallAllPrompt": {
+          "type": "boolean",
+          "default": false,
+          "description": "Prompt whether to install all shadcn/ui components after each project is created.",
+          "markdownDescription": "_Prompt for shadcn components_  \nAsk at creation time whether to run `npx shadcn@latest add --all`.",
+          "order": 111
+        },
         "nextjsPlus.openInNewWindow": {
           "type": "boolean",
           "default": true,
           "description": "Open the generated project in a new VS Code window after scaffolding.",
           "markdownDescription": "**Open in new window**  \nAutomatically open the generated project in a new VS Code window once scaffolding completes.",
-          "order": 100
+          "order": 120
         }
       }
     }

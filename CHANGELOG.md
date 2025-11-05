@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.5 - 11/5/2025
+
+- Added shadcn/ui automation settings with optional prompts.
+- Automatically run `npx shadcn@latest init` when enabled.
+- Added toggle to install all shadcn components via `npx shadcn@latest add --all`.
+- Updated documentation to cover the new workflow.
+
+---
+
 ## 1.0.4 - 11/4/2025
 
 - Updated `StatusBarItem` alignment.
